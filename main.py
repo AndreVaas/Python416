@@ -3163,7 +3163,8 @@ import re
 #
 # print(f'n = {finding_negative(numbers)}')
 
-print("Текст в локальном репозитории")
+# print("Текст в локальном репозитории")
+
 
 
 

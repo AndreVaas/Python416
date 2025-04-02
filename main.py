@@ -1,6 +1,7 @@
 # name = "admin" # переменная
 import locale
 import math
+from http.cookiejar import join_header_words
 from itertools import count
 from logging import setLogRecordFactory
 from math import trunc
@@ -2888,7 +2889,6 @@ s = "hello, WORLD! I am learning Python."
 
 import re
 
-
 s = "Я ищу совпадения в 2025 году. И я их найду в 2 счёта. 6789. [Hel_lo] Wor-ld 200000000000000"
 # # print(dir(re))
 # # reg = "\\."
@@ -3180,35 +3180,201 @@ import re
 # print(f.closed)
 
 
-f = open("text.txt", "r")
-print(f.read(3))
-print(f.read())
+# f = open("text.txt", "r")
+# print(f.read(3))
+# print(f.read())
+#
+# f.close()
+
+
+# f = open("xyz.txt", 'w')
+# f.write("This is line1.\nThis is line2.\nThis is line3.\n")
+# f.close()
+
+
+# f = open("xyz.txt")
+# print(f.read())
+# print(f.readline())
+# print(f.readline(8))
+# print(f.readline())
+# print(f.readline())
+# print(f.readlines(15))
+# print(f.readlines())
+# f.close()
+
+
+# f = open("xyz.txt")
+# for line in f:
+#     print(line)
+# f.close()
+
+# lines = ["This is line1.\n", "This is line2.\n", "This is line3.\n"]
+
+# f = open("lines.txt", "w")
+# f.writelines(lines)
+# f.close()
+
+# lines = [str(i) for i in range(10, 1000, 15)]
+# print(lines)
+#
+# # lines = ["This is line1.\n", "This is line2.\n", "This is line3.\n"]
+# f = open("lines.txt", "w")
+# for index in lines:
+#     f.write(index + "\t")
+# f.close()
+# file = "text2.txt"
+# f = open(file, "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+#
+# f.close()
+#
+# f = open(file, "r")
+# read_line = f.readlines()
+# print(read_line)
+# read_line[1] = "Hello world\n"
+# print(read_line)
+# f.close()
+#
+# f = open(file, "w")
+# f.writelines(read_line)
+# f.close()
+
+# f = open("text.txt", "r")
+# print(f.read(3))
+# print(f.tell()) # Возращает текущую позицию условного курсора в файле
+# print(f.seek(1)) # Перемещает условный курсор в заданную позицию
+# print(f.read())
+# print(f.tell())
+# f.close()
+
+# f = open("text5.txt", "a")
+# print(f.write("I am learning Python"))
+# print(f.seek(0))
+# print(f.write("--new string--"))
+# # print(f.read())
+# f.close()
+
+# with open("text.txt", "w") as f:
+#     print(f.write("0123456789"))
+# print(f.closed)
+
+# lst = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 5.04]
+#
+#
+# def get_line(lt):
+#     lt = list(map(str,lt))
+#     return " ".join(lt)
+#
+#
+# with open("res.txt", "w") as f:
+#     f.write(get_line(lst))
+#
+# print("Конец программы")
+
+
+# with open("res.txt") as f:
+#     nums = f.read()
+#
+# print(nums)
+#
+# print(sum(map(float, nums.split())))
+# print(sum(list(map(float, nums.split()))))
+
+
+# with open("res2.txt", "w") as f:
+#     f.write("Файл - именованная область данных на носителе информации используемая как базовый обьект  "
+#             "с данными в операционных системах.")  # взаимодействия
+#
+#
+# def longest_words(file):
+#     with open(file) as text:
+#         w = text.read().split()
+#         max_length = len(max(w, key=len))
+#         print(max_length)
+#         res = [word for word in w if len(word) == max_length]
+#         return res
+#
+#
+# print(longest_words("res2.txt"))
+
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10\n"
+# with open("one.txt", "w") as f:
+#     f.write(text)
+#
+# with open("one.txt", "r") as fr, open("two.txt", "w") as fw:
+#     for line in fr:
+#         line = line.replace("Строка","Линия -")
+#         fw.write(line)
+
+import os
+
+# print(os.getcwd()) # Путь к текущей директории
+#
+# print(os.listdir()) # Возвращает список директорий и файлов
+# print(os.listdir(".."))
+
+# os.mkdir("folder") # Создать папку
+
+# os.rmdir("folder") # Удалить папку
+
+# os.makedirs("nested1/nested2/nested3")  # Создает директорию спромежуточными папками
+
+# os.remove("xyz.txt") # Удаляет файл
+
+# os.rename("two.txt", "www.txt") # Переименовывает файл
+#
+# os.rename("www.txt", "nested1/nested2/nested3/www.txt") # Перемещает файл в  заданную папку
+
+# os.renames("text4.txt", "test/text4.txt") # Переместили файл создавая промежуточные папки
+
+
+# file = "text46.txt"
+# f = open(file, "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+#
+# f.close()
+#
+# f = open(file, "r")
+# read_line = f.readlines()
+# print(read_line)
+# read_line[1] = "Hello world\n"
+# print(read_line)
+# f.close()
+#
+# f = open(file, "w")
+# f.writelines(read_line)
+# f.close()
+
+# with open("res46.txt", "w") as f:
+#     f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+#     text = map(f)
+# print(text)
+
+
+file = "res46.txt"
+f = open(file, "w")
+f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
 
 f.close()
 
+f = open(file, "r")
+read_line = f.readlines()
+print(read_line)
+f.close()
 
+pos1 = int(input("Введите номер изменяемой строки:"))
+pos2 = int(input("Введите номер на которую производится замена:"))
 
+if 0 <= pos1 < len(read_line) and 0 <= pos2 < len(read_line):
+    read_line[pos1], read_line[pos2] = read_line[pos2], read_line[pos1]
+else:
+    print("Такой строки нет")
 
+print(read_line)
+f.close()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+f = open(file, "w")
+f.writelines(read_line)
+f.close()
 
 

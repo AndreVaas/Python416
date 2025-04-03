@@ -1,6 +1,7 @@
 # name = "admin" # переменная
 import locale
 import math
+import time
 from http.cookiejar import join_header_words
 from itertools import count
 from logging import setLogRecordFactory
@@ -3327,54 +3328,122 @@ import os
 
 # os.renames("text4.txt", "test/text4.txt") # Переместили файл создавая промежуточные папки
 
+# print(os.walk("nested1"))
+# for root, dirs, files in os.walk("nested1", topdown=False):
+#     print("Root:", root)
+#     print("\tdirs:", dirs)
+#     print("\tFiles", files)
 
-# file = "text46.txt"
-# f = open(file, "w")
-# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+# import os.path
+
+# print(os.path.split(r"C:\Users\AndreyVasilev\Desktop\python\nested1\text5.txt"))
 #
-# f.close()
+# print(os.path.join(r"C:\Users", "AndreyVasilev", "python"))
+
+import os
+
+# dirs = [r"Word\F1", r"Word\F2\F21"]
+# # for d in dirs:
+# #     os.makedirs(d)
 #
-# f = open(file, "r")
-# read_line = f.readlines()
-# print(read_line)
-# read_line[1] = "Hello world\n"
-# print(read_line)
-# f.close()
+# files = {
+#     "Word": ["w.txt"],
+#     r"Word\F1": ["f11.txt", "f12.txt", "f13.txt"],
+#     r"Word\F2\F21": ["f211.txt", "f212.txt"]
+# }
 #
-# f = open(file, "w")
-# f.writelines(read_line)
-# f.close()
+# for d, files in files.items():
+#     for file in files:
+#         file_path = os.path.join(d, file)
+#         # print(file_path)
+#         open(file_path, "w").close()
+#
+# file_with_text = [r"Word\w.txt", r"Word\F1\f12.txt", r"Word\F2\F21\f211.txt", r"Word\F2\F21\f212.txt"]
+#
+# for file in file_with_text:
+#     with open(file, "w") as f:
+#         f.write(f"Какой-то текст в файле {file}")
+#
+# def print_three(root, topdown):
+#     print(f"Обход {root} {'сверху вниз' if topdown else 'снизу вверх'}")
+#     for root, directory, file_name in os.walk(root, topdown):
+#         print(root)
+#         print(directory)
+#         print(file_name)
+#     print("-" * 50)
+#
+#
+# print_three("Word", False)
+# print_three("Word", True)
 
-# with open("res46.txt", "w") as f:
-#     f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
-#     text = map(f)
-# print(text)
+
+# print(os.path.exists(r"C:\Users\AndreyVasilev\Desktop\python\nested1\text5.txt"))
+# print(os.path.isfile(r"C:\Users\AndreyVasilev\Desktop\python\nested1\text5.txt"))
+# print(os.path.isdir(r"C:\Users\AndreyVasilev\Desktop\python\nested1"))
+
+# import  os
+# import time
+#
+# print(os.path.getsize("one.txt")) # Размер файла в байтах
+# print(os.path.getatime("one.txt")) # Время последнего доступа к файлу
+# print(os.path.getmtime("one.txt")) # Время последнего изменения файла
+# print(os.path.getctime("one.txt")) # возвращает время создания файла
+#
+# kb = os.path.getsize("one.txt")
+# a = os.path.getatime("one.txt")
+# m = os.path.getmtime("one.txt")
+# c = os.path.getctime("one.txt")
+#
+# print(time.strftime("%d.%m.%y, %H:%M:%S", time.localtime(a))) # Переводим секунды
+# print(time.strftime("%d.%m.%y, %H:%M:%S", time.localtime(m)))
+# print(time.strftime("%d.%m.%y, %H:%M:%S", time.localtime(c)))
+# print(kb // 1024)
 
 
-file = "res46.txt"
-f = open(file, "w")
-f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+# class Point:
+#     x = 1
+#     y = 2
 
-f.close()
+#
+# p1 = Point()
+# p1.x = 10
+# p1.y = 20
+# # Point.x = 100
+# print(p1.x, p1.y)
+# print(p1.__dict__)
+#
+# p2 = Point()
+# print(p2.x, p2.y)
+# p2.x = 5
+# print(p2.__dict__)
+#
+# print(Point.__dict__)
 
-f = open(file, "r")
-read_line = f.readlines()
-print(read_line)
-f.close()
 
-pos1 = int(input("Введите номер изменяемой строки:"))
-pos2 = int(input("Введите номер на которую производится замена:"))
+class Point:
+    """Класс для предоставлении координат точек на плоскости"""
+    x = 1
+    y = 2
 
-if 0 <= pos1 < len(read_line) and 0 <= pos2 < len(read_line):
-    read_line[pos1], read_line[pos2] = read_line[pos2], read_line[pos1]
-else:
-    print("Такой строки нет")
+    def set_coord(self, x1, y1):
+        self.x = x1
+        self.y = y1
 
-print(read_line)
-f.close()
 
-f = open(file, "w")
-f.writelines(read_line)
-f.close()
+p1 = Point()
+print(Point.__doc__) 
+print(Point.__dict__)
+# p1.x = 5
+# p1.y = 10
+p1.set_coord(5, 10)
+print(p1.__dict__)
+Point.set_coord(p1, 20, 30)
+print(p1.__dict__)
+
+
+p2 = Point()
+p2.set_coord(100,200)
+print(p2.__dict__)
+
 
 

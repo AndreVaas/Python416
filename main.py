@@ -3420,30 +3420,30 @@ import os
 # print(Point.__dict__)
 
 
-class Point:
-    """Класс для предоставлении координат точек на плоскости"""
-    x = 1
-    y = 2
-
-    def set_coord(self, x1, y1):
-        self.x = x1
-        self.y = y1
-
-
-p1 = Point()
-print(Point.__doc__) 
-print(Point.__dict__)
-# p1.x = 5
-# p1.y = 10
-p1.set_coord(5, 10)
-print(p1.__dict__)
-Point.set_coord(p1, 20, 30)
-print(p1.__dict__)
-
-
-p2 = Point()
-p2.set_coord(100,200)
-print(p2.__dict__)
+# class Point:
+#     """Класс для предоставлении координат точек на плоскости"""
+#     x = 1
+#     y = 2
+#
+#     def set_coord(self, x1, y1):
+#         self.x = x1
+#         self.y = y1
+#
+#
+# p1 = Point()
+# print(Point.__doc__)
+# print(Point.__dict__)
+# # p1.x = 5
+# # p1.y = 10
+# p1.set_coord(5, 10)
+# print(p1.__dict__)
+# Point.set_coord(p1, 20, 30)
+# print(p1.__dict__)
+#
+#
+# p2 = Point()
+# p2.set_coord(100,200)
+# print(p2.__dict__)
 
 
 

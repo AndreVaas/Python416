@@ -1,3 +1,6 @@
+from logging.config import stopListening
+
+
 class Automobile:
 
     def __init__(self, model, year, manufacturer, engine_power, color, price):
@@ -10,13 +13,13 @@ class Automobile:
             self.__year = year
         else:
             print("Год выпуска должен быть целым числом.")
-            self.__year = None
+            self.__year = "Неизвестно"
 
         if isinstance(price, int) and price >= 0:
             self.__price = price
         else:
             print("Цена должна быть положительным числом.")
-            self.__price = None
+            self.__price = "Неизвестно"
 
     def set_model(self, model):
         self.__model = model
@@ -65,7 +68,7 @@ class Automobile:
         print("=" * 40)
 
 
-auto1 = Automobile("X7 M50i", "2021", "BMW", "530 л.с.", "white",
-                   "10790000")
+auto1 = Automobile("X7 M50i", 2021, "BMW", "530 л.с.", "white",
+                   10790000)
 auto1.print_info()
 

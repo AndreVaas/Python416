@@ -3630,8 +3630,8 @@ import os
 # print(p1._Point__x = 10)
 # print(p1.__dict__)
 
-# import os
-# import time
+import os
+import time
 #
 # file_path = "nested1\\nested2\\test3.txt"
 #
@@ -3643,7 +3643,7 @@ import os
 # else:
 #     print(f"Файл {file_path} не существует")
 
-# import math
+
 #
 #
 # class Rectangle:
@@ -3701,7 +3701,7 @@ import os
 # print("Гипотенуза прямоугольника:", r1.get_hypotenuse())
 # r1.get_draw()
 
-#
+
 # class Point:
 #     __slots__ = ["x", "y", "z"]
 #
@@ -3713,7 +3713,7 @@ import os
 # p1 = Point(5, 10)
 # p1.z = 1
 # print(p1.x, p1.y, p1.z)
-# # print(p1.__dict__)
+# print(p1.__dict__)
 
 
 # class Point:
@@ -3851,8 +3851,8 @@ import os
 #
 # print(Point.get_count())
 # print(p1.get_count())
-
-
+#
+#
 # def inc(x):
 #     return x + 1
 #
@@ -3863,7 +3863,7 @@ import os
 #
 # print(inc(10), dec(10))
 #
-#
+# #
 # class Change:
 #     @staticmethod
 #     def inc(x):
@@ -3897,10 +3897,10 @@ import os
 #             if i < mn:  # 9 < 3
 #                 mn = i
 #         return mn
-
-    # @staticmethod
-    # def average(*args):
-    #     return sum(args) / len(args)
+#
+#     @staticmethod
+#     def average(*args):
+#         return sum(args) / len(args)
 #
 #     @staticmethod
 #     def average(a, b, c, d):

@@ -4369,7 +4369,7 @@ import time
 # class Line(Prop):
 #     ...
 #     # def draw(self):
-#     #     print(f"Рисование линии: {self.sp}, {self.ep}, {self.color}, {self.width}")
+#         # print(f"Рисование линии: {self.sp}, {self.ep}, {self.color}, {self.width}")
 #
 #
 # class Rect(Prop):
@@ -4400,16 +4400,16 @@ import time
 #
 #     @abstractmethod
 #     def move(self):
-#         print("Метод move() в базовом классе")
-#
+#         # print("Метод move() в базовом классе")
+#         pass
 #
 # class Queen(Chess):
 #
 #     def move(self):
 #         super().move()
 #         print("Ферзь перемещен на e2e4")
-#
-#
+# #
+# #
 # # q = Chess()
 # q = Queen()
 # q.draw()
@@ -4546,38 +4546,38 @@ import time
 
 
 # Вложенные классы
+#
+class MyOuter:
+    age = 18
 
-# class MyOuter:
-#     age = 18
-#
-#     def __init__(self, name):
-#         self.name = name
-#
-#     @staticmethod
-#     def outer_static_method():
-#         print("Статический метод")
-#
-#     def outer_obj_method(self):
-#         print("Метод экземпляра", self.name)
-#
-#     class MyInner:
-#         def __init__(self, inner_inner, obj):
-#             self.inner_inner = inner_inner
-#             self.obj = obj
-#
-#         def inner_method(self):
-#             print("Метод внутреннего класса", MyOuter.age, self.obj.name)
-#             print(self.inner_inner)
-#             MyOuter.outer_static_method()
-#             self.obj.outer_obj_method()
-#
-#
-# out = MyOuter("внешний")
-# print(out.name)
-# inner = out.MyInner("внутренний", out)
-# # inner = MyOuter.MyInner("внутренний")
-# print(inner.inner_inner)
-# inner.inner_method()
+    def __init__(self, name):
+        self.name = name
+
+    @staticmethod
+    def outer_static_method():
+        print("Статический метод")
+
+    def outer_obj_method(self):
+        print("Метод экземпляра", self.name)
+
+    class MyInner:
+        def __init__(self, inner_inner, obj):
+            self.inner_inner = inner_inner
+            self.obj = obj
+
+        def inner_method(self):
+            print("Метод внутреннего класса", MyOuter.age, self.obj.name)
+            print(self.inner_inner)
+            MyOuter.outer_static_method()
+            self.obj.outer_obj_method()
+
+
+out = MyOuter("внешний")
+print(out.name)
+inner = out.MyInner("внутренний", out)
+# inner = MyOuter.MyInner("внутренний")
+print(inner.inner_inner)
+inner.inner_method()
 
 # class LightColor:
 #     def __init__(self):

@@ -3632,6 +3632,8 @@ import os
 
 import os
 import time
+
+
 #
 # file_path = "nested1\\nested2\\test3.txt"
 #
@@ -5242,3 +5244,345 @@ import time
 #
 # s2 = StringStrip("?:!.; ")
 # print(s2("   Hello World!  ...  "))
+# import geometry
+# from abc import ABC, abstractmethod
+#
+#
+# class Shape:
+#     def __init__(self, color):
+#         self.color = color
+#
+#     @abstractmethod
+#     def get_perimeter(self):
+#         pass
+#
+#     @abstractmethod
+#     def get_area(self):
+#         pass
+#
+#     @abstractmethod
+#     def draw(self):
+#         pass
+#
+#     @abstractmethod
+#     def info(self):
+#         pass
+#
+#
+# class Square(Shape):
+#     def __init__(self, side, color):
+#         super().__init__(color)
+#         self.side = side
+#
+#     def get_perimeter(self):
+#         return self.side * 4
+#
+#     def get_area(self):
+#         return self.side * self.side
+#
+#     def draw(self):
+#         return ("*  " * self.side + "\n") * self.side
+#
+#     def info(self):
+#         print(f"=== Квадрат ===\nСторона: {self.side}\nЦвет: {self.color}"
+#               f"\nПлощадь: {self.get_area()}\nПериметр: {self.get_perimeter()}\n{self.draw()}\n")
+#
+#
+# class Rectangle(Shape):
+#     def __init__(self, length, width, color):
+#         super().__init__(color)
+#         self.length = length
+#         self.width = width
+#
+#     def get_perimeter(self):
+#         return (self.length + self.width) * 2
+#
+#     def get_area(self):
+#         return self.length * self.width
+#
+#     def draw(self):
+#         return ("*  " * self.width + "\n") * self.length
+#
+#     def info(self):
+#         print(f"=== Прямоугольник ===\nДлина: {self.length}\nШирина: {self.width}\nЦвет: {self.color}"
+#               f"\nПлощадь: {self.get_area()}\nПериметр: {self.get_perimeter()}\n{self.draw()}\n")
+#
+#
+# class Triangle(Shape):
+#     def __init__(self, side_1, side_2, side_3, color):
+#         super().__init__(color)
+#         self.side_1 = side_1
+#         self.side_2 = side_2
+#         self.side_3 = side_3
+#
+#     def get_perimeter(self):
+#         return self.side_1 + self.side_2 + self.side_3
+#
+#     def get_area(self):
+#         p = self.get_perimeter() / 2
+#         return round(geometry.sqrt(p * (p - self.side_1) * (p - self.side_2) * (p - self.side_3)), 2)
+#
+#     def draw(self):
+#         # return ("*  " * self.width + "\n") * self.length
+#         rows = []
+#         for n in range(self.side_2):  # 6, n = 2
+#             rows.append(" " * n + "*" * (self.side_1 - 2 * n))  # ['***********', ' *********', '  *******']
+#         rows.reverse()
+#         # return "\n".join(reversed(rows))
+#         return "\n".join(rows)
+#
+#     def info(self):
+#         print(f"=== Треугольник ===\nСторона 1: {self.side_1}\nСторона 2: {self.side_2}\nСторона 3: {self.side_3}"
+#               f"\nЦвет: {self.color}\nПлощадь: {self.get_area()}\nПериметр: {self.get_perimeter()}\n{self.draw()}\n")
+#
+#
+# # sq = Square(3, "red")
+# # sq.info()
+# # rect = Rectangle(3, 7, "green")
+# # rect.info()
+# # tr = Triangle(11, 6, 6, "yellow")
+# # tr.info()
+#
+# fig = [Square(3, "red"), Rectangle(3, 7, "green"), Triangle(11, 6, 6, "yellow")]
+#
+# for g in fig:
+#     g.info()
+
+
+# class MyDecorator:
+#     def __init__(self, fn):
+#         self.func = fn
+#
+#     def __call__(self):
+#         print("Перед вызовом функции")
+#         self.func()
+#         print("После вызова функции")
+#
+#
+# @MyDecorator
+# def func():
+#     print("text")
+#
+#
+# func()
+#
+#
+# class MyDecorator:
+#     def __init__(self, fn):
+#         self.func = fn
+#
+#     def __call__(self, a, b):
+#         return f"Перед вызовом функции \n{self.func(a, b)} \nПосле вызова функции"
+#
+#
+# @MyDecorator
+# def func(a, b):
+#     return a * b
+#
+#
+# print(func(2, 5))
+
+
+# class Power:
+#     def __init__(self, func):
+#         self.func = func
+#
+#     def __call__(self, a, b):
+#         return self.func(a, b) ** 2
+#
+#
+# @Power
+# def multiply(a, b):
+#     return a * b
+#
+#
+# print(multiply(2, 3))
+
+
+# class MyDecorator:
+#     def __init__(self, fn):
+#         self.func = fn
+#
+#     def __call__(self, *args, **kwargs):
+#         return f"Перед вызовом функции \n{self.func(*args, **kwargs)} \nПосле вызова функции"
+#
+#
+# @MyDecorator
+# def func(a, b):
+#     return a * b
+#
+#
+# @MyDecorator
+# def func2(a, b, c):
+#     return a + b - c
+#
+#
+# print(func(2, 5))
+# print(func2(2, 5, 3))
+# print(func2(c=2, a=5, b=3))
+
+
+# class MyDecorator:
+#     def __init__(self, arg):  # "test"
+#         self.name = arg
+#
+#     def __call__(self, fn):  # func
+#         def wrap(*args, **kwargs):  # 2, 5
+#             print(self.name)
+#             return f"Перед вызовом функции \n{fn(*args, **kwargs)} \nПосле вызова функции"
+#
+#         return wrap
+#
+#
+# @MyDecorator("test")
+# def func(a, b):
+#     return a * b
+#
+#
+# print(func(2, 5))
+
+
+# class Power:
+#     def __init__(self, arg):
+#         self.arg = arg
+#
+#     def __call__(self, func):
+#         def wrapper(a, b):
+#             return func(a, b) ** self.arg
+#
+#         return wrapper
+#
+#
+# @Power(3)
+# def multiply(a, b):
+#     return a * b
+#
+#
+# @Power(5)
+# def multiply1(a, b):
+#     return a + b
+#
+#
+# print(multiply(2, 2))
+# print(multiply1(3, 2))
+
+# def dec(fn):
+#     def wrap(*args, **kwargs):
+#         print("*" * 20)
+#         fn(*args, **kwargs)
+#         print("*" * 20)
+#     return wrap
+#
+#
+# class Person:
+#     def __init__(self, name, surname):
+#         self.name = name
+#         self.surname = surname
+#
+#     @dec
+#     def info(self):
+#         print(f"{self.name} {self.surname}")
+#
+#     @dec
+#     def method1(self, arg):
+#         print("Вывод аргумента:", arg)
+#
+#
+# p1 = Person("Виталий", "Карасев")
+# p1.info()
+# p1.method1("значение")
+
+# Метаклассы
+
+# a = 5
+# print(type(a))
+# print(type(int))
+
+
+# class MyList(list):
+#     def get_length(self):
+#         return len(self)
+
+# MyList = type(
+#     "MyList",
+#     (list,),
+#     dict(get_length=lambda self: len(self))
+# )
+#
+#
+# lst = MyList()
+# lst.append(5)
+# lst.append(7)
+# lst.append(9)
+# print(lst, lst.get_length())
+
+# Создание модулей
+
+# import geometry.rect
+# import geometry.sq
+# import geometry.trian
+#
+# from geometry import *
+
+# from geometry import rect, sq, trian
+
+
+# if __name__ == "__main__":
+#     r1 = rect.Rectangle(1, 2)
+#     r2 = rect.Rectangle(3, 4)
+#
+#     s1 = sq.Square(10)
+#     s2 = sq.Square(20)
+#
+#     t1 = trian.Triangle(1, 2, 3)
+#     t2 = trian.Triangle(4, 5, 6)
+#
+#     shape = [r1, r2, s1, s2, t1, t2]
+#
+#     for g in shape:
+#         print(g.perimeter())
+
+# def ran():
+#     r1 = rect.Rectangle(1, 2)
+#     r2 = rect.Rectangle(3, 4)
+#
+#     s1 = sq.Square(10)
+#     s2 = sq.Square(20)
+#
+#     t1 = trian.Triangle(1, 2, 3)
+#     t2 = trian.Triangle(4, 5, 6)
+#
+#     shape = [r1, r2, s1, s2, t1, t2]
+#
+#     for g in shape:
+#         print(g.perimeter())
+#
+#
+# if __name__ == "__main__":
+#     ran()
+
+
+# class Car:
+#     def __init__(self, brand, model, year, mileage):
+#         self.brand = brand
+#         self.model = model
+#         self.year = year
+#         self.mileage = mileage
+#
+#
+# class Electrocar(Car):
+#     def __init__(self, brand, model, year, mileage, charge):
+#         super().__init__(brand, model, year, mileage)
+#         self.charge = charge
+#
+#     def __call__(self, *args, **kwargs):
+#         print(f"{self.brand},{self.model},{self.year},{self.mileage}\n"
+#               f"Этот автомобиль имеет мощность: {self.charge}%")
+#
+#
+# tesla = Electrocar("Tesla", "T", "2008 год", "99000 km", 100)
+
+from Car.Electrocar import Electrocar
+
+tesla = Electrocar("Tesla", "T", "2008 год", "99000 km", 100)
+tesla()

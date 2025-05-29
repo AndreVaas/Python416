@@ -3,41 +3,35 @@ import os
 
 
 class Article:
-    def __init__(self, title, genre, director, year_of_release, duration, studio, actors):
+    def __init__(self, title, author, pages, description):
         self.title = title
-        self.genre = genre
-        self.director = director
-        self.year_of_release = year_of_release
-        self.duration = duration
-        self.studio = studio
-        self.actors = actors
+        self.author = author
+        self.pages = pages
+        self.description = description
 
     def __str__(self):
-        return f"{self.title}({self.director})"
+        return f"{self.title} ({self.author})"
 
 
 class ArticleModel:
     def __init__(self):
         self.db_name = "db.txt"
-        self.articles = self.load_data()
+        self.articles = self.load_data()  # {}
 
     def add_article(self, dict_article):
         article = Article(*dict_article.values())
         self.articles[article.title] = article
 
-    def get_all_article(self):
+    def get_all_articles(self):
         return self.articles.values()
 
     def get_single_article(self, user_title):
         article = self.articles[user_title]
         dict_article = {
-            "Название фильма": article.title,
-            "жанр": article.genre,
-            "режиссер": article.director,
-            "год выпуска": article.year_of_release,
-            "длительность": article.duration,
-            "студия": article.studio,
-            "актеры": article.actors
+            "название": article.title,
+            "автор": article.author,
+            "количество страниц": article.pages,
+            "описание": article.description
         }
         return dict_article
 

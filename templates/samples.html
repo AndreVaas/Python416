@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hello, I'm Index Page!</h1>
+<ul>
+{% for u in users %}
+    <li>{{ u.name }}</li>
+{% endfor %}
+</ul>
+<footer>Подвал</footer>
 </body>
 </html>

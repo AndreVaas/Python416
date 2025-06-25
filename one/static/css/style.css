@@ -1,5 +1,5 @@
 body{
-    background: yellow;
+    background: rgb(0, 89, 255);
     margin: 0;
     padding: 0;
     
@@ -8,7 +8,7 @@ body{
     display: flex;
     justify-content: space-around;
     list-style: none;
-    background: orange;
+    background: rgb(255, 0, 200);
     padding: 20px;
     margin-top: 0;
 }
@@ -17,4 +17,16 @@ body{
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
+}
+
+.flash {
+    padding: 10px;
+}
+.success{
+    border: 1px solid #21db56;
+    background: #AEffc5;
+}
+.error{
+    border: 1px solid #ff4343;
+    background: #ff9c9c;
 }

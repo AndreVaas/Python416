@@ -25,7 +25,7 @@ def about():
 @app.route("/contact", methods=["POST", "GET"])
 def contact():
     if request.method == "POST":
-        print(request.form)
+        # print(request.form)
         # print(request.form['username'])
         if len(request.form['username']) > 2:
             flash("Сообщение отправлено успешно!", category='success')
@@ -37,11 +37,11 @@ def contact():
 @app.route("/profile/<username>")
 def profile(username):
     return f"Пользователь: {username}"
-#
-#
-# @app.errorhandler(404)
-# def page_not_found(error):
-#     return render_template("page404.html", title="Страница не найдена", menu=menu)
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("page404.html", title="Страница не найдена", menu=menu)
 
 
 if __name__ == '__main__':

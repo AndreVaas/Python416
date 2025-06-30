@@ -1,16 +1,32 @@
 {% extends 'base.html'%}
 
 {% block content%}
-<h1>Добавление статьи</h1>
+<h1>Оставьте комментарий</h1>
 {% for  cat, msg in get_flashed_messages(True) %}
 <div class = "flash {{ cat }}"> {{ msg }} </div>
 {% endfor %}
 <hr>
-<h2>Список статей</h2>
-<form action="{{ url_for('add_post')}}" method="post">
-    <p>Название статьи <input type="text" name="name" required></p>
+
+<form action="{{ url_for('add_post')}}" method="post" >
+    <p>Пользователь <input type="text" name="name" required></p>
     <p> <textarea name="post" cols="40" rows="7">  </textarea> </p>
-    <p><input type="submit" value="Добавить"> </p>
+    <p><input type="submit" value="Добавить" style=" border-radius: 10px;
+    color: white;
+    transition: .2s linear;
+    background: #0B63F6;"> </p>
 </form>
 
 {% endblock %}
+
+<h2>Отзывы игроков</h2>
+
+<ul>
+    {% for p in posts%}
+    <li>
+        <p class="title">
+            <a href="{{ url_for('show_post', id_post=p.id) }}"></a>
+            {{ p.title }}
+        </p><div class="annonce">{{ p.text }}</div>
+    </li>
+    {% endfor %}
+</ul>

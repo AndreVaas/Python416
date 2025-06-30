@@ -9,7 +9,7 @@ body{
     display: list-item;
     justify-content: space-around;
     list-style: none;
-    background: rgb(149, 55, 237);
+    background: rgba(174, 120, 224, 0.952);
     padding: 20px;
     margin-top: 0;
 }
@@ -33,4 +33,43 @@ body{
 .error{
     border: 1px solid #ff4343;
     background: #ff9c9c;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+p > a{
+    text-decoration: none;
+    color: brown;
+}
+
+li > p, li div{
+    border: 1px solid #CCCCCC;
+    padding: 10px 20px;
+}
+
+p.title{
+    margin: 0;
+    font-weight: bold;
+    background: rgb(163, 87, 186);    
+    border-radius: 10px;
+}
+
+p.title a{
+    display: block;
+    padding: 10px 0;
+    
+}
+
+p.title:hover{
+    background: rgb(124, 21, 150);
+    border-radius: 10px;
+}
+
+.annonce{
+    margin-top: -1px;
+    margin-bottom: 40px;
+    background: rgb(234, 205, 86);
+    border-radius: 10px;
 }

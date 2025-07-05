@@ -1,0 +1,29 @@
+body {
+    background: rgb(232, 238, 144);
+}
+
+.container {
+    width: 400px;
+    margin: 0 auto;
+
+}
+.container h1{
+    text-align: center;
+}
+.container form, .container h2{
+    background: greenyellow;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    
+}
+.conta h1{
+     text-align: center;
+}
+.conta h2{
+    background: rgb(255, 238, 47);
+    padding: 20px;
+    box-sizing: content-box;
+    border-radius: 6px;
+    
+}

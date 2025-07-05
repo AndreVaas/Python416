@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{%  static  'css/style.css' %}">
+</head>
+<body>
+ <div  class="conta">
+<h1>Инструкция</h1>
+<h2>Данное приложение генерирует случайный пароль из случайных цифр, букв и спецсимволов,
+вы можете выбрать длинну и указать наличие спецсимволов, цифр, и заглавных букв.
+</h2></div>
+<p><a href="{% url 'home' %}">Вернуться на главную </a></p>
+</body>
+</html>

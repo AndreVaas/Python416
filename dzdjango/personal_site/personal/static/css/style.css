@@ -1,0 +1,31 @@
+.Title {
+    text-transform: uppercase;
+    text-align: center;
+    width: 1500px;
+    background: greenyellow;
+}
+.block{
+    text-align: center;
+    width: 1500px;
+    background: lightgreen;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    
+}
+.text{
+text-align: justify;
+text-decoration: dashed;
+
+}
+body {
+background: rgb(32, 178, 98);
+
+}
+  .scale {
+    width: 250px; /* Ширина картинок */
+    transition: 1s; /* Время эффекта */
+   }
+   .scale:hover {
+    transform: scale(1.1);
+   }

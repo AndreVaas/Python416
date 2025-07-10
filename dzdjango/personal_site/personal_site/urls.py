@@ -22,10 +22,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf import settings
 from personal import views
+# from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('portfolio/', views.portfolio, name="portfolio"),
 
 ]
 

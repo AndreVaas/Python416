@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
+
 .Title {
     text-transform: uppercase;
     text-align: center;
@@ -5,27 +8,90 @@
     background: greenyellow;
 }
 .block{
-    text-align: center;
-    width: 1500px;
-    background: lightgreen;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     
 }
 .text{
-text-align: justify;
-text-decoration: dashed;
+padding: 20px;
+box-sizing: border-box;
 
 }
 body {
+font-family: "Tektur", sans-serif;
 background: rgb(32, 178, 98);
+padding: 0;
+margin: 0;
+
 
 }
-  .scale {
-    width: 250px; /* Ширина картинок */
-    transition: 1s; /* Время эффекта */
-   }
-   .scale:hover {
+  /* .scale {
+    width: 250px;
+    transition: 1s;
+    
+   } */
+   /* .scale:hover {
     transform: scale(1.1);
-   }
+   } */
+.wrap{
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: auto;
+    box-sizing: border-box;
+}
+.img2{
+    text-align: center;
+    margin-bottom: 60px;
+
+}
+.img2 img{
+  border: 6px solid #054f22;
+  width: 30%;
+  
+}
+
+h1{
+    text-align: center;
+    margin: 60px 0 40px;
+
+}
+.block img{
+    max-width: 360px;}
+
+.element, .count{
+    flex-basis: 360px;
+    background: #5a886d;
+    border: 6px solid #054f22;
+    margin-bottom: 40px;}    
+.animate__animated animate__animate__shakeY a{
+  
+  text-decoration: none;
+}    
+.animate__animated animate__wobble {
+text-align: right;
+--animate-duration: 5s;
+}
+.me img{
+  border: 6px solid #054f22;
+  width: 10%;}
+
+.portf {
+  display: flex;
+  align-items: flex-start; /* Выравнивание по верхнему краю */
+  gap: 20px; /* Расстояние между изображением и текстом */
+  margin-top: 20px;
+}
+
+.img img {
+  width: 200px; /* Настрой под нужный размер */
+  height: auto;
+  border-radius: 10px; /* По желанию — скругление углов */
+  border: 6px solid #054f22
+}
+
+.blog {
+  max-width: 600px;
+  font-size: 18px;
+  line-height: 1.5;
+}  

@@ -3,11 +3,16 @@
 {% load static %}
 
 {% block content %}
-<h3 class="animate__animated animate__wobble"><a href="{% url 'portfolio' %}">Портфолио разработчика сайта</a></h3>
+<div class="menu">
+<h3 ><a href="{% url 'portfolio' %}">Портфолио разработчика сайта</a></h3>
+  <h3><a href="{% url 'blogs' %}">Отзывы читателей</a></h3>
+</div>
 <h1 class="Title"> Фантастика 2025 года </h1>
 <div class="img2">
   <img src="{% static 'personal/fantazy0_1564639817.jpg' %}" alt="">
 </div>
+<h1 class="Title"> Лучшее </h1>
+
 <div class="block">
   {% for project in projects%}
   <div class="element">

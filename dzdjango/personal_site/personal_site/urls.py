@@ -30,6 +30,9 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('portfolio/', views.portfolio, name="portfolio"),
     path('blog/', include('blog.urls')),
+    path('signup/', views.signup_user, name='signupuser'),
+    path('logout/', views.logout_user, name='logoutuser'),
+    path('login/', views.login_user, name='loginuser'),
 
 ]
 

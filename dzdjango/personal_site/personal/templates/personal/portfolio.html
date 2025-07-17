@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div><h1 class="Title">Привет! Меня зовут Андрей. </h1>  </div>
+<div><h1 class="Title">Привет! Меня зовут Васильев Андрей. </h1>  </div>
 <div class="portf">
   <div class="img">
     <img src="{% static 'personal/photo_2025-07-10_12-19-34.jpg' %}" alt="Фото Андрея">
@@ -17,5 +17,5 @@
     Сейчас в моём портфолио — учебные проекты, но я постоянно учусь и готов к реальным задачам.
   </div>
 </div>
-<a href="{% url 'index' %}">Вернуться на главную</a>
+<div class="back"><a href="{% url 'index'%}">Вернуться на главную страницу</a></div>
 {% endblock %}

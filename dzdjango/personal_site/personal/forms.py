@@ -6,3 +6,7 @@ class BlogForm(ModelForm):
     class Meta:
         model = Blog
         fields = ['title', 'description']
+        labels = {
+            'title': 'Название книги',
+            'description': 'Отзыв',
+        }

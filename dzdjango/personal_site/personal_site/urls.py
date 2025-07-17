@@ -33,6 +33,7 @@ urlpatterns = [
     path('signup/', views.signup_user, name='signupuser'),
     path('logout/', views.logout_user, name='logoutuser'),
     path('login/', views.login_user, name='loginuser'),
+    path('create/', views.create_otz, name='createotz'),
 
 ]
 

@@ -6,14 +6,15 @@
 <h1>Отзывы</h1>
 
 {% for blog in blogs %}
-<div class="element">
-    <h2 class="top">
+<div class="blog_1">
+    <h2 class="top_1">
         <a href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
     </h2>
     <div class="blog_text">
 
         <div>{{ blog.description|truncatechars:260 }}</div>
-        <h5>{{ blog.date|date:'d.m.Y' }}</h5>
+        <div class="user_date"><h5>{{ blog.date|date:'d.m.Y' }}</h5>
+        <h5>{{ blog.user }}</h5></div>
     </div>
 </div>
 {% endfor %}

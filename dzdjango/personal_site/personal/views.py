@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .models import Personal
+from .forms import BlogForm
 
 
 def index(request):
@@ -27,7 +28,8 @@ def signup_user(request):
                 return redirect('index')
             except IntegrityError:
                 return render(request, 'personal/signupuser.html',
-                              {'form': UserCreationForm(), 'error': 'Такое имя пользователя существует, задайте другое'})
+                              {'form': UserCreationForm(),
+                               'error': 'Такое имя пользователя существует, задайте другое'})
 
         else:
             return render(request, 'personal/signupuser.html',
@@ -52,3 +54,19 @@ def login_user(request):
     else:
         login(request, user)
         return redirect('index')
+
+
+def create_otz(request):
+    if request.method == "GET":
+        return render(request, "personal/createotz.html", {"form": BlogForm()})
+    else:
+        try:
+            form = BlogForm(request.POST)
+            new_otz = form.save(commit=False)
+            new_otz.user = request.user
+            new_otz.save()
+            return redirect('blogs')
+        except ValueError:
+            return render(request, 'personal/createotz.html',
+                          {
+                              "form": BlogForm(), 'error': 'Переданы неверные данные'})

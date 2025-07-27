@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models import SET_NULL
+
+from users.models import Profile
 
 
 class Tag(models.Model):
@@ -10,6 +13,7 @@ class Tag(models.Model):
 
 
 class Project(models.Model):
+    owner = models.ForeignKey(Profile, on_delete=SET_NULL, null=True, blank=True)
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
     featured_images = models.ImageField(upload_to="projects/%Y/%m/%d/",

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ apartment.name }}</title>
+</head>
+<body>
+    <h1>{{ apartment.name }}</h1>
+    <p>Адрес: {{ apartment.address }}</p>
+    <p>Общая площадь: {{ apartment.total_area }} м²</p>
+    <p><strong>Общие затраты: {{ apartment.total_cost }} ₽</strong></p>
+
+    <h2>Комнаты:</h2>
+    <ul>
+        {% for room in rooms %}
+            <li>
+                {{ room.name }} ({{ room.area }} м²) — Затраты:
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'apartment' %}">← Назад к списку квартир</a>
+</body>
+</html>

@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Мои квартиры</title>
-</head>
-<body>
-    <h1>Мои квартиры</h1>
-    <ul>
-        {% for apt in apartments %}
-            <li>
-                <a href="{% url 'apartment_detail' apt.pk %}">
-                    {{ apt.name }} — {{ apt.total_cost }} ₽
-                </a>
-            </li>
-        {% empty %}
-            <li>У вас пока нет квартир.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "repairs/base.html" %}
+
+
+{% block content %}
+<h2>Мои квартиры</h2>
+<a href="{% url 'apartment_create' %}">➕ Добавить квартиру</a>
+<ul>
+    {% for apt in apartments %}
+    <li>
+        <a href="{% url 'apartment_detail' apt.pk %}">
+            {{ apt.name }} — {{ apt.total_area }} м²
+        </a>
+    </li>
+    {% empty %}
+    <li>Нет квартир</li>
+    {% endfor %}
+</ul>
+{% endblock %}

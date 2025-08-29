@@ -2,12 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Ваш калькулятор для планирования ремонта{% endblock %}</title>
+    <title>Ваш калькулятор для планирования ремонта</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f2f2f2; }
         header, footer { background: #333; color: #fff; padding: 1em; text-align: center; }
         nav a { color: #fff; margin: 0 10px; text-decoration: none; }
         main { padding: 20px; }
+        form.logout-button { display: inline; }
     </style>
 </head>
 <body>
@@ -16,6 +17,15 @@
     <h1>Ваш калькулятор для планирования ремонта</h1>
     <nav>
         <a href="{% url 'apartment' %}">Мои Проекты</a>
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'logoutuser' %}" class="logout-button">
+            {% csrf_token %}
+            <button type="submit" style="background:none; border:none; color:#fff; cursor:pointer;">Выйти</button>
+        </form>
+        {% else %}
+        <a href="{% url 'loginuser' %}">Войти</a>
+        <a href="{% url 'signupuser' %}">Регистрация</a>
+        {% endif %}
     </nav>
 </header>
 

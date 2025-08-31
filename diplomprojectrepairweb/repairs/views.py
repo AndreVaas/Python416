@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Apartment
-from .forms import ApartmentForm
+from .models import Apartment, Room, Work
+from .forms import ApartmentForm, RoomForm, WorkForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
@@ -81,3 +81,33 @@ def apartment_create(request):
     return render(request, 'repairs/apartment_form.html', {
         'form': form
     })
+
+
+@login_required
+def room_create(request, apartment_id):
+    apartment = get_object_or_404(Apartment, pk=apartment_id, user=request.user)
+    if request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            room = form.save(commit=False)
+            room.apartment = apartment
+            room.save()
+            return redirect('apartment_detail', pk=apartment.id)
+    else:
+        form = RoomForm()
+    return render(request, 'repairs/room_form.html', {'form': form, 'apartment': apartment})
+
+
+@login_required
+def work_create(request, room_id):
+    room = get_object_or_404(Room, pk=room_id, apartment__user=request.user)
+    if request.method == 'POST':
+        form = WorkForm(request.POST)
+        if form.is_valid():
+            work = form.save(commit=False)
+            work.room = room
+            work.save()
+            return redirect('apartment_detail', pk=room.apartment.id)
+    else:
+        form = WorkForm()
+    return render(request, 'repairs/work_form.html', {'form': form, 'room': room})

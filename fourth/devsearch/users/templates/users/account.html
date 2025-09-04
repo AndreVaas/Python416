@@ -1,6 +1,8 @@
 {% extends 'projects/base.html' %}
 
 {% block content %}
+
+  <!-- Main Section -->
   <main class="settingsPage profile my-md">
     <div class="container">
       <div class="layout">
@@ -12,7 +14,7 @@
               <h2 class="dev__name">{{ profile.name }}</h2>
               <p class="dev__title">{{ profile.short_intro }}</p>
 
-               <ul class="dev__social">
+             <ul class="dev__social">
                 {% if profile.social_github %}
                 <li>
                   <a title="Github" href="{{ profile.social_github }}" target="_blank"><i class="fa fa-github-square"></i></a>
@@ -29,6 +31,7 @@
                 </li>
                 {% endif %}
               </ul>
+
             </div>
           </div>
         </div>
@@ -50,7 +53,7 @@
               <td class="settings__tableInfo">
                 <h4>{{ skill.name }}</h4>
                 <p>
-                 {{ skill.description }}
+                  {{ skill.description }}
                 </p>
               </td>
               <td class="settings__tableActions">
@@ -76,7 +79,7 @@
               <td class="settings__tableInfo">
                 <a href="{% url 'project' project.id %}">{{ project.title }}</a>
                 <p>
-                  {{ project.description|slice:"150"}}...
+                  {{ project.description|slice:"150" }}...
                 </p>
               </td>
               <td class="settings__tableActions">
@@ -91,4 +94,5 @@
       </div>
     </div>
   </main>
+
 {% endblock %}

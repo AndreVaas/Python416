@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -108,6 +106,36 @@ def work_create(request, room_id):
             work.room = room
             work.save()
             return redirect('apartment_detail', pk=room.apartment.id)
+        else:
+            return render(request, 'repairs/work_form.html', {'form': form, 'room': room,
+                                                              'error': 'Пожалуйста, исправьте ошибки в форме'})
+
     else:
         form = WorkForm()
     return render(request, 'repairs/work_form.html', {'form': form, 'room': room})
+
+
+@login_required
+def work_edit(request, work_id):
+    work = get_object_or_404(Work, pk=work_id, room__apartment__user=request.user)
+    if request.method == 'POST':
+        form = WorkForm(request.POST, instance=work)
+        if form.is_valid():
+            form.save()
+            return redirect('apartment_detail', pk=work.room.apartment.id)
+        else:
+            return render(request, 'repairs/work_form.html',
+                          {'form': form, 'room': work.room, 'error': 'Пожалуйста, исправьте ошибки в форме'})
+    else:
+        form = WorkForm(instance=work)
+    return render(request, 'repairs/work_form.html', {'form': form, 'room': work.room})
+
+
+@login_required
+def work_delete(request, work_id):
+    work = get_object_or_404(Work, pk=work_id, room__apartment__user=request.user)
+    if request.method == 'POST':
+        apartment_id = work.room.apartment.id
+        work.delete()
+        return redirect('apartment_detail', pk=apartment_id)
+    return render(request, 'repairs/work_confirm_delete.html', {'work': work})

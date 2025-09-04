@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Sum, F
 
 
 # Название проекта(Квартира, частный дом) (добавил 27.07.25)
@@ -11,6 +12,20 @@ class Apartment(models.Model):
 
     def __str__(self):
         return self.name
+
+    # добавил методы модели Apartment,
+    # total_cost и works_cost которые вычисляют общую стоимость ремонта для конкретного проекта
+    # (добавил 04.09.25)
+    def total_cost(self):
+        rooms = self.room_set.all()
+        works_cost = sum(room.work_set.aggregate(total_cost=Sum('cost'))['total_cost'] or 0 for room in rooms)
+        materials_cost = sum(
+            room.material_set.aggregate(total_cost=Sum(F('cost') * F('quantity')))['total_cost'] or 0 for room in rooms)
+        return works_cost + materials_cost
+
+    def works_cost(self):
+        rooms = self.room_set.all()
+        return sum(room.work_set.aggregate(total_cost=Sum('cost'))['total_cost'] or 0 for room in rooms)
 
 
 # Разбивка по комнатам(кухня, ванна, и тд) (добавил 02.08.25)

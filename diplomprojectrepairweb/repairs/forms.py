@@ -1,5 +1,5 @@
 from django import forms
-from .models import Apartment, Room, Work
+from .models import Apartment, Room, Work, Material
 
 
 class ApartmentForm(forms.ModelForm):
@@ -32,4 +32,16 @@ class RoomForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'area': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+
+
+class MaterialForm(forms.ModelForm):
+    class Meta:
+        model = Material
+        fields = ['name', 'quantity', 'unit', 'cost']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'quantity': forms.NumberInput(attrs={'class': 'form-control'}),
+            'unit': forms.TextInput(attrs={'class': 'form-control'}),
+            'cost': forms.NumberInput(attrs={'class': 'form-control'}),
         }

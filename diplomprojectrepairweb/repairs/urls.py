@@ -12,4 +12,7 @@ urlpatterns = [
     path('room/<int:room_id>/work/new/', views.work_create, name='work_create'),
     path('work/<int:work_id>/edit/', views.work_edit, name='work_edit'),
     path('work/<int:work_id>/delete/', views.work_delete, name='work_delete'),
+    path('room/<int:room_id>/material/new/', views.material_create, name='material_create'),
+    path('material/<int:material_id>/edit/', views.material_edit, name='material_edit'),
+    path('material/<int:material_id>/delete/', views.material_delete, name='material_delete'),
 ]

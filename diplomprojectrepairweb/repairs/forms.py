@@ -11,6 +11,11 @@ class ApartmentForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'total_area': forms.NumberInput(attrs={'class': 'form-control'}),
         }
+        labels = {
+            'name': 'Название',
+            'address': 'Адрес',
+            'total_area': 'Общая площадь (м²)',
+        }
 
 
 class WorkForm(forms.ModelForm):
@@ -23,6 +28,12 @@ class WorkForm(forms.ModelForm):
             'cost': forms.NumberInput(attrs={'class': 'form-control'}),
             'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
+        labels = {
+            'name': 'Название',
+            'description': 'Описание',
+            'cost': 'Стоимость (руб.)',
+            'date': 'Дата',
+        }
 
 
 class RoomForm(forms.ModelForm):
@@ -32,6 +43,10 @@ class RoomForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'area': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+        labels = {
+            'name': 'Название',
+            'area': 'Площадь (кв.м)',
         }
 
 
@@ -44,4 +59,10 @@ class MaterialForm(forms.ModelForm):
             'quantity': forms.NumberInput(attrs={'class': 'form-control'}),
             'unit': forms.TextInput(attrs={'class': 'form-control'}),
             'cost': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+        labels = {
+            'name': 'Название',
+            'quantity': 'Количество',
+            'unit': 'Единица измерения',
+            'cost': 'Стоимость за единицу (руб.)',
         }

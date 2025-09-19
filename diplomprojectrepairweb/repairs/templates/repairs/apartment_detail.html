@@ -4,11 +4,11 @@
 {% block content %}
 <div class="container mt-5">
     <h1>{{ apartment.name }}</h1>
-    <p>Адрес: {{ apartment.address }}</p>
-    <p>Площадь: {{ apartment.total_area }} м²</p>
-    <p>Бюджет на работы: {{ apartment.works_cost|floatformat:2 }} руб.</p>
-    <p>Бюджет на материалы: {{ apartment.materials_cost|floatformat:2 }} руб.</p>
-    <p>Общий бюджет: {{ apartment.total_cost|floatformat:2 }} руб.</p>
+    <span>Адрес: {{ apartment.address }}</span>
+    <span>Площадь: {{ apartment.total_area }} м²</span>
+    <span>Бюджет на работы: {{ apartment.works_cost|floatformat:2 }} руб.</span>
+    <span>Бюджет на материалы: {{ apartment.materials_cost|floatformat:2 }} руб.</span>
+    <span>Общий бюджет: {{ apartment.total_cost|floatformat:2 }} руб.</span>
     <a href="{% url 'room_create' apartment.id %}" class="btn btn-primary mb-3">Добавить комнату</a>
     <h3>Комнаты:</h3>
     <ul class="list-group mb-4">
@@ -80,3 +80,4 @@
     <a href="{% url 'apartment' %}" class="btn btn-secondary mt-3">Назад</a>
 </div>
 {% endblock %}
+
